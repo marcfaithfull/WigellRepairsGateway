@@ -1,0 +1,17 @@
+server:
+  port: 4545
+
+spring:
+  application:
+    name: WigellGateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: WigellRepairs
+              uri: http://wigellrepairs:5555
+              predicates:
+                - Path=/api/wigellrepairs/**
+              filters:
+                - StripPrefix=2
