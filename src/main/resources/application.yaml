@@ -10,8 +10,11 @@ spring:
         webmvc:
           routes:
             - id: WigellRepairs
-              uri: http://wigellrepairs:5555
+              uri: http://localhost:5555
               predicates:
                 - Path=/api/wigellrepairs/**
-              filters:
-                - StripPrefix=2
+
+            - id: WigellRepairsCurrencyConverter
+              uri: http://localhost:8081
+              predicates:
+                - Path=/convert/sekToEuro/**
